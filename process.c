@@ -126,7 +126,7 @@ int _process_read_file(process_t *proc, FILE *fh) {
         return -1;
     }
 
-    /* not interested in what follow */
+    /* not interested in wath follows */
     /* convert start time to time running*/
     lld_value /= sysconf(_SC_CLK_TCK);
     uptime = (time_t)_process_get_uptime();
