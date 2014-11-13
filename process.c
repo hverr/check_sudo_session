@@ -110,6 +110,10 @@ int _process_read_file(process_t *proc, FILE *fh) {
     proc->pid = (pid_t)lld_value;
 
     str_value = _process_copy_next_string(fh); /* comm */
+    if(str_value == NULL || str_value[0] != '(') {
+        fprintf(stderr, "error: %s: command name\n", __FUNCTION__);
+        return -1;
+    }
     strncpy(proc->comm, str_value, sizeof(proc->comm));
     free(str_value);
 
@@ -122,7 +126,7 @@ int _process_read_file(process_t *proc, FILE *fh) {
     }
 
     if(_process_read_next_num(fh, &lld_value) != 0) {
-        fprintf(stderr, "error: _process_read_next_num: start_time\n");
+        fprintf(stderr, "error: %s: start_time\n", __FUNCTION__);
         return -1;
     }
 
