@@ -6,7 +6,8 @@ CFLAGS=-Wall
 TARGET=check_sudo_session
 SOURCES=check_sudo_session.c\
 	process.c\
-	options.c
+	options.c\
+	nagios_exit.c
 OBJECTS=$(SOURCES:%.c=%.o)
 
 %.c: %.h
