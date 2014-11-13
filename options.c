@@ -129,6 +129,7 @@ void print_usage(FILE *out, const char *prog) {
     fprintf(out, "        running before a critical status is generated.\n");
     fprintf(out, "\n");
     fprintf(out, "    -o user\n");
-    fprintf(out, "        (optional) Only check sudo sessions running as\n");
-    fprintf(out, "        the specified user or user id.\n");
+    fprintf(out, "        (optional, not implemented) Only check sudo\n");
+    fprintf(out, "        sessions running with an effective UID equal to\n");
+    fprintf(out, "        that of the specified user or the user id.\n");
 }
