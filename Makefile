@@ -5,7 +5,8 @@ CFLAGS=-Wall
 
 TARGET=check_sudo_session
 SOURCES=check_sudo_session.c\
-	process.c
+	process.c\
+	options.c
 OBJECTS=$(SOURCES:%.c=%.o)
 
 %.c: %.h
