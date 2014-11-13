@@ -114,7 +114,10 @@ int _process_read_file(process_t *proc, FILE *fh) {
         fprintf(stderr, "error: %s: command name\n", __FUNCTION__);
         return -1;
     }
-    strncpy(proc->comm, str_value, sizeof(proc->comm));
+    strncpy(proc->comm, &(str_value[1]), sizeof(proc->comm));
+    if(strlen(str_value) - 2 < sizeof(proc->comm)) {
+        proc->comm[strlen(str_value) - 2] = 0;
+    }
     free(str_value);
 
     /* state, ppid, sid, tty_nr, tty_pgrp, flags,
